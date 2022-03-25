@@ -1,0 +1,227 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-family: 'Libre Caslon Text', sans-serif;
+  line-height: 150%;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container h1.logo {
+  text-align: center;
+  margin: 2em 0 1em;
+  font-size: 4em;
+  font-family: 'Lobster Two', sans-serif;
+  font-weight: 400;
+}
+
+form {
+  text-align: center;
+  margin: 0 auto;
+}
+
+form input {
+  padding: 1em;
+  border: 1px solid black;
+  background: white;
+  border-radius: 5px 0px 0px 5px;
+}
+
+form button {
+  padding: calc(1em + 1px) calc(1.2em + 1px);
+  background: -webkit-gradient(linear, left top, right bottom, from(#329d9c), to(#205072));
+  background: linear-gradient(to bottom right, #329d9c, #205072);
+  color: white;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+}
+
+form button:hover {
+  background: -webkit-gradient(linear, right top, left bottom, from(#329d9c), to(#205072));
+  background: linear-gradient(to bottom left, #329d9c, #205072);
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(2em);
+            transform: translateY(2em);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(2em);
+            transform: translateY(2em);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+article {
+  -webkit-animation: fadeIn .5s forwards;
+          animation: fadeIn .5s forwards;
+  width: min(90%, 60em);
+  margin: 0 auto;
+}
+
+article header {
+  margin-block: 1.5em .5em;
+}
+
+article header h1 {
+  font-size: 2em;
+  font-weight: 400;
+}
+
+article header .phonetics-section p {
+  font-size: 1.5rem;
+  font-family: serif;
+}
+
+article ul.definition-section .definition-by-part-of-speech {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 1em;
+  margin-block: 1em;
+}
+
+article ul {
+  list-style: none;
+}
+
+article .part-of-speech {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.3em;
+  margin-bottom: .5em;
+}
+
+article .definitions-part {
+  margin: 1em;
+}
+
+article .definitions-part .the-definition {
+  margin-block: 1.5em;
+}
+
+article .synonym-section, article .antonym-section {
+  margin-left: 1.3em;
+}
+
+article .synonym-section h3, article .antonym-section h3 {
+  margin-bottom: .5em;
+}
+
+article .synonym-section ul, article .antonym-section ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+article .synonym-section ul li, article .antonym-section ul li {
+  margin-right: 1em;
+}
+
+article .antonym-section {
+  margin-top: 1em;
+}
+
+.no-result-message, article {
+  display: none;
+  margin-top: 1em;
+  font-weight: lighter;
+}
+
+header, .phonetics-section {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  place-items: center;
+  gap: 1em;
+}
+
+.phonetics-section button {
+  background: -webkit-gradient(linear, left top, right bottom, from(#329d9c), to(#205072));
+  background: linear-gradient(to bottom right, #329d9c, #205072);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+}
+
+.phonetics-section button:hover {
+  background: -webkit-gradient(linear, right top, left bottom, from(#329d9c), to(#205072));
+  background: linear-gradient(to bottom left, #329d9c, #205072);
+}
+
+.loading-indicator {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2em;
+}
+
+.loading-indicator span {
+  display: inline-block;
+  background-color: #205072;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  -webkit-animation: bounce 0.5s infinite alternate;
+          animation: bounce 0.5s infinite alternate;
+  -webkit-transform: translate3d(0);
+          transform: translate3d(0);
+}
+
+.loading-indicator span:nth-child(2) {
+  background-color: #329d9c;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+.loading-indicator span:nth-child(3) {
+  background-color: #56c596;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+@-webkit-keyframes bounce {
+  to {
+    -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes bounce {
+  to {
+    -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+  }
+}
+/*# sourceMappingURL=main.css.map */
