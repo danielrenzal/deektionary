@@ -1,3 +1,4 @@
+const logo = document.querySelector(".logo");
 const searchInput = document.querySelector(".search-input");
 const searchBtn = document.querySelector(".search-btn");
 const article = document.querySelector("article");
@@ -8,9 +9,18 @@ const loadingIndicator = document.querySelector(".loading-indicator");
 const definitionSection = document.querySelector(".definition-section");
 const phoneticsSection = document.querySelector(".phonetics-section");
 
-searchBtn.addEventListener("click", async (event)=>{
+//move the logo to the upper part
+searchInput.addEventListener("click",()=>{
+    logo.style.marginTop = ".5em";
+})
+
+searchBtn.addEventListener("click", (event)=>{
     event.preventDefault();
-    const searchedWord = searchInput.value;
+    getData(searchInput.value);
+})
+
+async function getData(searchedWord){
+    searchInput.value = searchedWord;
     loadingIndicator.style.display = "flex"
     article.style.display = "none";
     noResultMesssage.style.display = "none";
@@ -39,9 +49,7 @@ searchBtn.addEventListener("click", async (event)=>{
     }else{
         noData("Empty input.")
     }
-    
-    
-})
+}
 
 function noData(message){
     loadingIndicator.style.display = "none";
@@ -113,8 +121,7 @@ function displayData(data){
             phoneticsItem = "(Pronunciation not available)"
         }else{
             phoneticsItem += `<div>${checkPhoneticsAudio()}</div>
-            <p>${checkPhoneticsText()}</p>
-                                `;
+                              <p>${checkPhoneticsText()}</p>`;
         }
         
         phoneticsSection.innerHTML = phoneticsItem;
@@ -136,7 +143,7 @@ function displayData(data){
             title = "Synonyms";
             synonymsItems = "";
             for (let k=0; k<synonyms.length; k++){
-                synonymsItems += `<li>${synonyms[k]},</li>`;
+                synonymsItems += `<li onClick="wordLookUp(this.textContent)">${synonyms[k]}</li>`;
             }
             synonymSection = `<div class="synonym-section">
                                 <h3>${title}</h3>
@@ -151,7 +158,7 @@ function displayData(data){
             title = "Antonyms";
             antonymsItems = "";
             for (let k=0; k<antonyms.length; k++){
-                antonymsItems += `<li>${antonyms[k]},</li>`;
+                antonymsItems += `<li onClick="wordLookUp(this.textContent)">${antonyms[k]}</li>`;
             }
             antonymSection = `<div class="antonym-section">
                                 <h3>${title}</h3>
@@ -175,4 +182,8 @@ function displayData(data){
 //to play phonetic audios
 function playAudio(){
     document.getElementById("phoneticAudio").play();
+}
+
+function wordLookUp(word){
+    getData(word);
 }

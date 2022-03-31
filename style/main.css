@@ -9,43 +9,42 @@
 }
 
 .container {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.container h1.logo {
-  text-align: center;
-  margin: 2em 0 1em;
-  font-size: 4em;
-  font-family: 'Lobster Two', sans-serif;
-  font-weight: 400;
-}
-
-form {
-  text-align: center;
+  width: min(90%, 60em);
   margin: 0 auto;
 }
 
-form input {
+header h1.logo {
+  margin-block: 2em 1em;
+  font-size: 4em;
+  font-family: 'Lobster Two', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  -webkit-transition: margin .3s ease-out;
+  transition: margin .3s ease-out;
+}
+
+header form {
+  text-align: center;
+}
+
+header form input {
   padding: 1em;
   border: 1px solid black;
   background: white;
   border-radius: 5px 0px 0px 5px;
 }
 
-form button {
+header form button {
   padding: calc(1em + 1px) calc(1.2em + 1px);
   background: -webkit-gradient(linear, left top, right bottom, from(#329d9c), to(#205072));
   background: linear-gradient(to bottom right, #329d9c, #205072);
   color: white;
   border: none;
   border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
 }
 
-form button:hover {
+header form button:hover {
   background: -webkit-gradient(linear, right top, left bottom, from(#329d9c), to(#205072));
   background: linear-gradient(to bottom left, #329d9c, #205072);
 }
@@ -73,24 +72,34 @@ form button:hover {
 }
 
 article {
+  display: none;
   -webkit-animation: fadeIn .5s forwards;
           animation: fadeIn .5s forwards;
-  width: min(90%, 60em);
-  margin: 0 auto;
 }
 
 article header {
-  margin-block: 1.5em .5em;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-block: 2em .5em;
+  gap: 1em;
 }
 
 article header h1 {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 400;
 }
 
 article header .phonetics-section p {
   font-size: 1.5rem;
   font-family: serif;
+}
+
+article ul.definition-section {
+  background-color: white;
 }
 
 article ul.definition-section .definition-by-part-of-speech {
@@ -137,19 +146,22 @@ article .synonym-section ul, article .antonym-section ul {
 
 article .synonym-section ul li, article .antonym-section ul li {
   margin-right: 1em;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 article .antonym-section {
   margin-top: 1em;
 }
 
-.no-result-message, article {
+.no-result-message {
+  text-align: center;
+  font-weight: 400;
   display: none;
-  margin-top: 1em;
-  font-weight: lighter;
+  margin-top: 5em;
 }
 
-header, .phonetics-section {
+.phonetics-section {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
@@ -168,6 +180,7 @@ header, .phonetics-section {
   border-radius: 50%;
   height: 2em;
   width: 2em;
+  cursor: pointer;
 }
 
 .phonetics-section button:hover {
@@ -222,6 +235,12 @@ header, .phonetics-section {
   to {
     -webkit-transform: translate3d(0, -10px, 0);
             transform: translate3d(0, -10px, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  article header {
+    display: block;
   }
 }
 /*# sourceMappingURL=main.css.map */

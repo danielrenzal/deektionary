@@ -8,39 +8,42 @@
 }
 
 .container{
-    display: grid;
-    justify-content: center;
-    // padding-inline:#{" min(9em,5%)"};
+    width: #{"min(90%, 60em)"};
+    margin: 0 auto;
+}
+
+header{
     h1.logo{
-        text-align: center;
-        margin: 2em 0 1em;
+        margin-block: 2em 1em;
         font-size: 4em;
         font-family: 'Lobster Two', sans-serif;
         font-weight: 400;
+        text-align: center;
+        transition: margin .3s ease-out;
     }
-}
-
-form{
-    text-align: center;
-    margin: 0 auto;
-    input{
-        padding: 1em;
-        border: 1px solid black;
-        background: white;
-        border-radius: 5px 0px 0px 5px;
-    }
-    button{
-        padding: #{"calc(1em + 1px) calc(1.2em + 1px)"};
-        background: linear-gradient(to bottom right, #329d9c, #205072);
-        color: white;
-        border: none;
-        border-radius: 0px 5px 5px 0px;
-        &:hover{
-            background: linear-gradient(to bottom left, #329d9c, #205072);
+    form{
+        text-align: center;
+        input{
+            padding: 1em;
+            border: 1px solid black;
+            background: white;
+            border-radius: 5px 0px 0px 5px;
         }
+        button{
+            padding: #{"calc(1em + 1px) calc(1.2em + 1px)"};
+            background: linear-gradient(to bottom right, #329d9c, #205072);
+            color: white;
+            border: none;
+            border-radius: 0px 5px 5px 0px;
+            cursor: pointer;
+            &:hover{
+                background: linear-gradient(to bottom left, #329d9c, #205072);
+            }
+        }
+    
     }
-
 }
+
 
 @keyframes fadeIn{
     from{
@@ -53,19 +56,26 @@ form{
 }
 
 article{
+    display: none;
     animation: fadeIn .5s forwards;
-    width: #{"min(90%, 60em)"};
-    margin: 0 auto;
     header{
-        margin-block: 1.5em .5em;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        margin-block: 2em .5em;
+        gap: 1em;
         h1{
-        font-size: 2em;
+        font-size: 2rem;
         font-weight: 400;
         }
         .phonetics-section p{
             font-size: 1.5rem;
             font-family: serif;
         }
+    }
+
+    ul.definition-section{
+        background-color: white;
     }
 
     ul.definition-section .definition-by-part-of-speech{
@@ -100,6 +110,8 @@ article{
             flex-wrap: wrap;
             li{
                 margin-right: 1em;
+                text-decoration: underline;
+                cursor: pointer;
             }
         }
     }
@@ -109,13 +121,14 @@ article{
 
 }
 
-.no-result-message, article{
+.no-result-message{
+    text-align: center;
+    font-weight: 400;
     display: none;
-    margin-top: 1em;
-    font-weight: lighter;
+    margin-top: 5em;
 }
 
-header, .phonetics-section{
+.phonetics-section{
     display: grid;
     grid-auto-flow: column;
     justify-content: start;
@@ -131,6 +144,7 @@ header, .phonetics-section{
     border-radius: 50%;
     height: 2em;
     width: 2em;
+    cursor: pointer;
     &:hover{
         background: linear-gradient(to bottom left, #329d9c, #205072);
     }
@@ -167,3 +181,8 @@ header, .phonetics-section{
     }
 }
 
+@media (max-width: 768px){
+    article header{
+        display: block;
+    }
+}
