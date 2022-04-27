@@ -8,9 +8,17 @@
   line-height: 150%;
 }
 
+* {
+  color: #272727;
+}
+
+body {
+  background-color: #fafafa;
+}
+
 .container {
-  width: min(90%, 60em);
-  margin: 0 auto;
+  width: min(90%, 90em);
+  margin: 1em auto;
 }
 
 header h1.logo {
@@ -24,20 +32,29 @@ header h1.logo {
 }
 
 header form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  -webkit-box-shadow: 1px 1px 6px #e4e4e4;
+          box-shadow: 1px 1px 6px #e4e4e4;
 }
 
 header form input {
   padding: 1em;
-  border: 1px solid black;
+  border: none;
   background: white;
   border-radius: 5px 0px 0px 5px;
+  width: 100%;
+  font-size: 18px;
 }
 
 header form button {
   padding: calc(1em + 1px) calc(1.2em + 1px);
-  background: -webkit-gradient(linear, left top, right bottom, from(#329d9c), to(#205072));
-  background: linear-gradient(to bottom right, #329d9c, #205072);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#f73be7), to(#b357ff));
+  background-image: linear-gradient(to bottom right, #f73be7, #b357ff);
   color: white;
   border: none;
   border-radius: 0px 5px 5px 0px;
@@ -45,8 +62,12 @@ header form button {
 }
 
 header form button:hover {
-  background: -webkit-gradient(linear, right top, left bottom, from(#329d9c), to(#205072));
-  background: linear-gradient(to bottom left, #329d9c, #205072);
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#b357ff), to(#f73be7));
+  background-image: linear-gradient(to bottom left, #b357ff, #f73be7);
+}
+
+header form button img {
+  width: 1.5em;
 }
 
 @-webkit-keyframes fadeIn {
@@ -78,14 +99,8 @@ article {
 }
 
 article header {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  margin-block: 2em .5em;
-  gap: 1em;
+  display: block;
+  margin-block: 2em 1em;
 }
 
 article header h1 {
@@ -99,14 +114,22 @@ article header .phonetics-section p {
 }
 
 article ul.definition-section {
-  background-color: white;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
 article ul.definition-section .definition-by-part-of-speech {
-  border: 1px solid grey;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 6px #ececec;
+          box-shadow: 1px 1px 6px #ececec;
   border-radius: 5px;
   padding: 1em;
-  margin-block: 1em;
 }
 
 article ul {
@@ -173,8 +196,8 @@ article .antonym-section {
 }
 
 .phonetics-section button {
-  background: -webkit-gradient(linear, left top, right bottom, from(#329d9c), to(#205072));
-  background: linear-gradient(to bottom right, #329d9c, #205072);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#f73be7), to(#b357ff));
+  background-image: linear-gradient(to bottom right, #f73be7, #b357ff);
   color: white;
   border: none;
   border-radius: 50%;
@@ -184,8 +207,12 @@ article .antonym-section {
 }
 
 .phonetics-section button:hover {
-  background: -webkit-gradient(linear, right top, left bottom, from(#329d9c), to(#205072));
-  background: linear-gradient(to bottom left, #329d9c, #205072);
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#f73be7), to(#b357ff));
+  background-image: linear-gradient(to bottom left, #f73be7, #b357ff);
+}
+
+.phonetics-section button img {
+  width: 1em;
 }
 
 .loading-indicator {
@@ -201,7 +228,7 @@ article .antonym-section {
 
 .loading-indicator span {
   display: inline-block;
-  background-color: #205072;
+  background-color: #f73be7;
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -213,13 +240,13 @@ article .antonym-section {
 }
 
 .loading-indicator span:nth-child(2) {
-  background-color: #329d9c;
+  background-color: #b357ff;
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
 
 .loading-indicator span:nth-child(3) {
-  background-color: #56c596;
+  background-color: #eb5ba3;
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
@@ -238,9 +265,19 @@ article .antonym-section {
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   article header {
-    display: block;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 1em;
+  }
+  article ul.definition-section {
+    -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
 }
 /*# sourceMappingURL=main.css.map */
