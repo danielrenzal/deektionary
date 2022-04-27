@@ -1,9 +1,11 @@
 const logo = document.querySelector(".logo");
+const inputContainer = document.querySelector(".input-container");
 const searchInput = document.querySelector(".search-input");
 const searchBtn = document.querySelector(".search-btn");
 const article = document.querySelector("article");
 const noResultMesssage = document.querySelector(".no-result-message");
 const loadingIndicator = document.querySelector(".loading-indicator");
+
 
 
 const definitionSection = document.querySelector(".definition-section");
@@ -13,6 +15,7 @@ const phoneticsSection = document.querySelector(".phonetics-section");
 searchInput.addEventListener("click",()=>{
     logo.style.marginTop = ".5em";
 })
+
 
 searchBtn.addEventListener("click", (event)=>{
     event.preventDefault();
@@ -107,7 +110,7 @@ function displayData(data){
                 const audioFile = phonetics[i].audio;
                 phoneticsAudio = `
                             <audio id="phoneticAudio" src="${audioFile}"></audio>
-                            <button type="button" onClick="playAudio()"><i class="bi bi-volume-up"></i></button>`;
+                            <button type="button" onClick="playAudio()"><img src="assets/speaker-icon.svg" alt="speaker icon" class="speaker-icon"></button>`;
                 break;
             }
             
