@@ -29,7 +29,9 @@ body{
 
 header{
     h1.logo{
-        margin-block: 2em 1em;
+        // margin-block: 2em 1em;
+        margin-top: 2em;
+        margin-bottom: 1em;
         font-size: 4em;
         font-family: 'Lobster Two', sans-serif;
         font-weight: 400;
@@ -44,7 +46,8 @@ header{
         box-shadow: 1px 1px 6px rgb(228, 228, 228);
         
         input{
-            padding: 1em;
+            padding-left: 1em;
+            padding-right: 1em;
             border: none;
             background: white;
             border-radius: 5px 0px 0px 5px;
@@ -52,7 +55,8 @@ header{
             font-size: 18px;
         }
         button{
-            padding: #{"calc(1em + 1px) calc(1.2em + 1px)"};
+            display: flex;
+            padding: 1.2em;
             background-image: linear-gradient(to bottom right, $color1, $color2);
             color: white;
             border: none;
@@ -85,7 +89,9 @@ article{
     animation: fadeIn .5s forwards;
     header{
         display: block;
-        margin-block: 2em 1em;
+        // margin-block: 2em 1em;
+        margin-top: 2em;
+        margin-bottom: 1em;
         h1{
         font-size: 2rem;
         font-weight: 400;
@@ -99,7 +105,7 @@ article{
     ul.definition-section{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1em;
+        // gap: 1em;
         align-items: start;
     }
 
@@ -108,6 +114,9 @@ article{
         box-shadow: 1px 1px 6px rgb(236, 236, 236);
         border-radius: 5px;
         padding: 1em;
+        margin-left: 0.5625em;
+        margin-right: 0.5625em;
+        margin-bottom: 1.125em;
     }
 
     ul{
@@ -122,7 +131,9 @@ article{
     .definitions-part{
         margin: 1em;
         .the-definition{
-            margin-block: 1.5em
+            // margin-block: 1.5em;
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
         }
     }
     .synonym-section, .antonym-section{
@@ -158,17 +169,19 @@ article{
     grid-auto-flow: column;
     justify-content: start;
     place-items: center;
-    gap: 1em;
+    // gap: 1em;
+
 }
 
 
 .phonetics-section button{
+    display: flex;
     background-image: linear-gradient(to bottom right, $color1, $color2);
     color: white;
     border: none;
     border-radius: 50%;
-    height: 2em;
-    width: 2em;
+    padding: .5em;
+    margin-right: 1em;
     cursor: pointer;
     &:hover{
         background-image: linear-gradient(to bottom left, $color1, $color2);
@@ -215,11 +228,20 @@ article{
             display: grid;
             grid-auto-flow: column;
             justify-content: center;
-            gap: 1em;
+            // gap: 1em;
+            .searched-word{
+                margin-right: .5em;
+            }
         }
+        
+    }
+
+}
+
+@media (min-width: 550px){
+    article{
         ul.definition-section{
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         }
     }
-
 }
