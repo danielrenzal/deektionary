@@ -8,7 +8,8 @@ const loadingIndicator = document.querySelector(".loading-indicator");
 
 
 
-const definitionSection = document.querySelector(".definition-section");
+const defCol1 = document.querySelector(".definition-section .column1");
+const defCol2 = document.querySelector(".definition-section .column2");
 const phoneticsSection = document.querySelector(".phonetics-section");
 
 //move the logo to the upper part
@@ -68,7 +69,8 @@ function displayData(data){
 
     const word = document.querySelector(".searched-word");
     let phoneticsItem = "";
-    let meaningsItem = "";
+    let meaningsItemCol1 = "";
+    let meaningsItemCol2 = "";
     let definitionItems = "";
     let synonymSection = "";
     let antonymSection = "";
@@ -171,14 +173,33 @@ function displayData(data){
         }
 
         //finally displaying them all
-        meaningsItem += `<li class="definition-by-part-of-speech">
-                            <h2 class="part-of-speech">${meanings[i].partOfSpeech}</h2>
-                            <ul class="definitions-part">${definitionItems}</ul>
-                            ${synonymSection}
-                            ${antonymSection}
-                            
-                          </li>`;
-        definitionSection.innerHTML = meaningsItem;
+        if(i % 2 === 0){
+            meaningsItemCol1 += `<li class="definition-by-part-of-speech">
+                                    <h2 class="part-of-speech">${meanings[i].partOfSpeech}</h2>
+                                    <ul class="definitions-part">${definitionItems}</ul>
+                                    ${synonymSection}
+                                    ${antonymSection}
+                                    
+                                </li>`;
+        }else{
+            meaningsItemCol2 += `<li class="definition-by-part-of-speech">
+                                    <h2 class="part-of-speech">${meanings[i].partOfSpeech}</h2>
+                                    <ul class="definitions-part">${definitionItems}</ul>
+                                    ${synonymSection}
+                                    ${antonymSection}
+                                    
+                                </li>`;
+        }
+    }
+    defCol1.innerHTML = meaningsItemCol1;
+    defCol2.innerHTML = meaningsItemCol2;
+
+    //some words contain only one definition. In this case, column 2 (defCol2) will be hidden to
+    //properly display column 1 (defCol1)
+    if(meaningsItemCol2 === ""){
+        defCol2.style.display = "none";
+    }else{
+        defCol2.style.display = "block";
     }
 }
 

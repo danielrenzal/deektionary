@@ -53,6 +53,7 @@ header{
             border-radius: 5px 0px 0px 5px;
             width: 100%;
             font-size: 18px;
+            z-index: 1;
         }
         button{
             display: flex;
@@ -102,20 +103,17 @@ article{
         }
     }
 
-    ul.definition-section{
+    .definition-section{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        // gap: 1em;
-        align-items: start;
     }
 
-    ul.definition-section .definition-by-part-of-speech{
+    .definition-by-part-of-speech{
         background-color: white;
         box-shadow: 1px 1px 6px rgb(236, 236, 236);
         border-radius: 5px;
         padding: 1em;
-        margin-left: 0.5625em;
-        margin-right: 0.5625em;
+        // margin-left: 0.5625em;
+        // margin-right: 0.5625em;
         margin-bottom: 1.125em;
     }
 
@@ -233,15 +231,17 @@ article{
                 margin-right: .5em;
             }
         }
+
+        .definition-section{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .definition-by-part-of-speech{
+            margin-left: 0.5625em;
+            margin-right: 0.5625em;
+        }
         
     }
 
-}
-
-@media (min-width: 550px){
-    article{
-        ul.definition-section{
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        }
-    }
 }

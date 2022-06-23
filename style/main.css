@@ -51,6 +51,7 @@ header form input {
   border-radius: 5px 0px 0px 5px;
   width: 100%;
   font-size: 18px;
+  z-index: 1;
 }
 
 header form button {
@@ -119,24 +120,17 @@ article header .phonetics-section p {
   font-family: serif;
 }
 
-article ul.definition-section {
+article .definition-section {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
 }
 
-article ul.definition-section .definition-by-part-of-speech {
+article .definition-by-part-of-speech {
   background-color: white;
   -webkit-box-shadow: 1px 1px 6px #ececec;
           box-shadow: 1px 1px 6px #ececec;
   border-radius: 5px;
   padding: 1em;
-  margin-left: 0.5625em;
-  margin-right: 0.5625em;
   margin-bottom: 1.125em;
 }
 
@@ -288,12 +282,15 @@ article .antonym-section {
   article header .searched-word {
     margin-right: .5em;
   }
-}
-
-@media (min-width: 550px) {
-  article ul.definition-section {
-    -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  article .definition-section {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  article .definition-by-part-of-speech {
+    margin-left: 0.5625em;
+    margin-right: 0.5625em;
   }
 }
 /*# sourceMappingURL=main.css.map */
